@@ -1,0 +1,10 @@
+---
+# tasks file for postpatch
+- name: Running post patch activities
+  shell: "> /etc/motd"
+ 
+- name: Removing figlet
+  dnf:
+    name: figlet
+    state: absent
+

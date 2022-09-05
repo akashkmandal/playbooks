@@ -1,0 +1,4 @@
+- hosts: pupagent
+  roles:
+    - update-os 
+    - postpatch
