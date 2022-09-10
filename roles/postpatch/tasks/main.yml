@@ -8,3 +8,8 @@
     name: figlet
     state: absent
 
+- name: Enable user login
+  lineinfile:
+    path: /etc/security/access.conf
+    regexp: '^-:ALL:ALL'
+    line: #-:ALL:ALL
