@@ -1,4 +1,9 @@
 - hosts: pupagent
   roles:
-    - update-os 
-    - postpatch
+#    - update-os 
+#    - postpatch
+          - name: webserver
+            vars_files:
+                    - roles/webserver/vars/main.yml
+                      #   handlers:
+                      # - include: roles/webserver/handlers/main.yml

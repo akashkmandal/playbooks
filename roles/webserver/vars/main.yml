@@ -1,0 +1,10 @@
+---
+# vars file for webserver
+package_name: "httpd"
+http_port: "80"
+server_name: "linuxhunter.com"
+server_alias: "www.linuxhunter.com"
+doc_root: "/var/www/linuxhunter.com"
+error_log: "linuxhunter.com"
+access_log: "linuxhunter.com"
+service_name: "httpd"

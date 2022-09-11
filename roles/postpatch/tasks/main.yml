@@ -9,7 +9,8 @@
     state: absent
 
 - name: Enable user login
-  lineinfile:
+  replace:
     path: /etc/security/access.conf
     regexp: '^-:ALL:ALL'
-    line: #-:ALL:ALL
+    replace: "#-:ALL:ALL"
+

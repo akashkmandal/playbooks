@@ -1,0 +1,36 @@
+---
+# tasks file for webserver
+- name: Installing webserver
+  package:
+    name:  "{{ package_name }}"
+    state: present
+
+- name: Creating virtual host
+  template:
+    src: roles/webserver/templates/linuxhunter.com.conf.j2
+    dest: /etc/httpd/conf.d/linuxhunter.com.conf
+
+- name: Creating doc root
+  file:
+    path: /var/www/linuxhunter.com
+    state: directory
+    mode: '0755'
+
+- name: Copy index html file on webserver
+  copy:
+    src: roles/webserver/files/index.html
+    dest: /var/www/linuxhunter.com/index.html
+  notify:
+  - Restart webserver
+
+
+- name: Ensure apache is running
+  service:
+    name: "{{ service_name }}"
+    state: started
+    enabled: true
+
+   #handlers:
+   # - name: Restart webserver
+   #  service: "{{ service_name }}"
+   # state: restarted

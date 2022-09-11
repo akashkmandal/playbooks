@@ -1,0 +1,13 @@
+<virtualhost *:{{ http_port }}>
+
+ServerName {{ server_name }}
+
+ServerAlias {{ server_alias }}
+
+DocumentRoot {{ doc_root }}
+
+ErrorLog /var/log/httpd/{{ error_log }}-error.log
+
+CustomLog /var/log/httpd/{{ access_log }}-access.log combined
+
+</virtualhost>
